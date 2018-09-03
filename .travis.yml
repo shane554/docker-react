@@ -1,0 +1,13 @@
+sudo : required
+
+# travis will insatll docker
+services: 
+  - docker
+
+# steps which need to occur    . uses current file to build
+before_install:
+  - docker build -t shane88/docker-react -f Dockerfile.dev .
+
+
+script: 
+  - docker run shane88/docker-react npm run test -- --coverage 

@@ -16,5 +16,7 @@ RUN npm run build
 # configuration for the run stage
 FROM nginx
 
+EXPOSE 80
+
 # we want to copy somthing from the builder pahse
 COPY --from=builder /app/build /usr/share/nginx/html
